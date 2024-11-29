@@ -19,7 +19,8 @@ sudo apt install nvidia-cuda-toolkit
 ### Compile and run CUDA program
 
 ```bash
-nvcc vector_add.cu -o vector_add
+
+nvcc -std=c++20 -o vector_add vector_add.cu
 
 ./vector_add
 
