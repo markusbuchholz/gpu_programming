@@ -1,7 +1,8 @@
 # GPU Programming
 
+## This repository contains sample programs that demonstrate the CUDA programming style.
 
-## Check CUDA  Drivers and compiler
+### Check CUDA  Drivers and compiler
 
 ```bash
 nvidia-smi
@@ -9,13 +10,13 @@ nvidia-smi
 nvcc --vesion
 ```
 
-## Install Nvidia Cuda compiler,
+### Install Nvidia Cuda compiler,
 
 ```bash
 sudo apt install nvidia-cuda-toolkit
 ```
 
-## Compile and run CUDA program
+### Compile and run CUDA program
 
 ```bash
 nvcc vector_add.cu -o vector_add
