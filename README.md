@@ -33,3 +33,4 @@ nvcc -std=c++20 -o vector_add vector_add.cu
 - [CUDA lessons](https://github.com/ENCCS/cuda?tab=readme-ov-file)
 - [cuda_programming](https://github.com/CoffeeBeforeArch/cuda_programming)
 - [GPU-course](https://github.com/EPCCed/archer-gpu-course?tab=readme-ov-file)
+- [GPU in robotics](https://github.com/JanuszBedkowski/gpu_computing_in_robotics)
