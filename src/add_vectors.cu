@@ -8,8 +8,7 @@
 
 // CUDA kernel for vector addition
 // __global__ means this is called from the CPU, and runs on the GPU
-__global__ void vectorAdd(const int *__restrict a, const int *__restrict b,
-                          int *__restrict c, int N) {
+__global__ void vectorAdd(const int *__restrict a, const int *__restrict b, int *__restrict c, int N) {
   // Calculate global thread ID
   int tid = (blockIdx.x * blockDim.x) + threadIdx.x;
 
