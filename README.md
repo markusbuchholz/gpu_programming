@@ -26,10 +26,11 @@ nvcc -std=c++20 -o vector_add vector_add.cu
 
 ```
 
+---
 
 ### Architecture
 
-SM (Streaming Multiprocessor) as one of the GPU’s “cores” (or compute units). Typicaly 56.
+SM (Streaming Multiprocessor) as one of the GPU’s ```cores``` (or compute units). Typicaly 56.
 
 ```bash
 Host launch → Grid (many Blocks) 
@@ -44,7 +45,7 @@ Host launch → Grid (many Blocks)
 N = 32, 64, 128, 256, 512, 1024.
 ```
 
-1. Decide obout your number of elements ```N```, and number of threads per block ```NUM_THREADS```.
+1. Decide about your number of elements ```N```, and number of threads per block ```NUM_THREADS```.
 
 2. Compute ```NUM_BLOCKS```:
 
