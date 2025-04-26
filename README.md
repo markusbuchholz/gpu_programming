@@ -64,6 +64,7 @@ const int NUM_BLOCKS   = (N + NUM_THREADS - 1) / NUM_THREADS;
 ```bash
 
 add<<<NUM_BLOCKS, NUM_THREADS>>>();
+
 // add<<<20, 512>>>( /* your arguments, e.g. pointers and N */ );
 ```
 
