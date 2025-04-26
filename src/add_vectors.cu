@@ -71,7 +71,7 @@ int main() {
   // cudaMemcpy is a synchronous operation, and waits for the prior kernel
   // launch to complete (both go to the default stream in this case).
   // Therefore, this cudaMemcpy acts as both a memcpy and synchronization
-  // barrier.
+  // barrier. cudaDeviceSynchronize();
   cudaMemcpy(c.data(), d_c, bytes, cudaMemcpyDeviceToHost);
 
   // Check result for errors

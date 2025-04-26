@@ -68,6 +68,13 @@ add<<<NUM_BLOCKS, NUM_THREADS>>>();
 // add<<<20, 512>>>( /* your arguments, e.g. pointers and N */ );
 ```
 
+4.
+
+```bash
+// calculate the row and column index of the pixel
+int x = blockIdx.x * blockDim.x + threadIdx.x; // Column
+int y = blockIdx.y * blockDim.y + threadIdx.y; // Row
+```
 
 ## Links
 
