@@ -11,8 +11,6 @@ __global__ void matrixAdd(const int *ma, const int *mb, int *m1, int N)
 }
 
 
-
-
 void init_matrix(int *matrix, int n)
 {
 
