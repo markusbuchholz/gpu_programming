@@ -10,6 +10,9 @@ __global__ void matrixAdd(const int *ma, const int *mb, int *m1, int N)
         m1[tid] = ma[tid] + mb[tid];
 }
 
+
+
+
 void init_matrix(int *matrix, int n)
 {
 
@@ -36,6 +39,9 @@ int main()
     int *matrix_results = new int[N * N];
 
     init_matrix(matrix_a, N);
+    init_matrix(matrix_b, N);
+    init_matrix(matrix_c, N);
+    init_matrix(matrix_d, N);
 
     size_t bytes_n = N * N * sizeof(int);
 
@@ -52,15 +58,15 @@ int main()
     // copy data from CPU to GPU
 
     cudaMemcpy(ma, matrix_a, bytes_n, cudaMemcpyHostToDevice);
-    cudaMemcpy(ma, matrix_a, bytes_n, cudaMemcpyHostToDevice);
-    cudaMemcpy(ma, matrix_a, bytes_n, cudaMemcpyHostToDevice);
-    cudaMemcpy(ma, matrix_a, bytes_n, cudaMemcpyHostToDevice);
+    cudaMemcpy(mb, matrix_b, bytes_n, cudaMemcpyHostToDevice);
+    cudaMemcpy(mc, matrix_c, bytes_n, cudaMemcpyHostToDevice);
+    cudaMemcpy(md, matrix_d, bytes_n, cudaMemcpyHostToDevice);
 
     int NUM_THREADS = 256;
     int NUM_BLOCKS = (N + NUM_THREADS - 1) / NUM_THREADS;
 
     // perform computaion on GPU
-    matrixAdd<<<NUM_BLOCKS, NUM_THREADS>>>(ma, mb, m1, N);
+    matrixAdd<<<NUM_BLOCKS, NUM_THREADS>>>(ma, mb, m1, N*N);
 
     // Copy the result back to the CPU
     cudaMemcpy(matrix_results, m1, bytes_n, cudaMemcpyDeviceToHost);
