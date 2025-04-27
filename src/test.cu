@@ -29,7 +29,7 @@ void init_matrix(int *matrix, int n)
 int main()
 {
 
-    int N = 1 << 3;
+    int N = 1 << 10;
 
     int *matrix_a = new int[N * N];
     int *matrix_b = new int[N * N];
@@ -80,4 +80,24 @@ int main()
             std::cout << matrix_results[N * ii + jj] << " ,";
         }
     }
+
+    std::cout << " ------------------------------" << std::endl;
+
+    // perform computaion on GPU
+    matrixAdd<<<NUM_BLOCKS, NUM_THREADS>>>(mc, md, m2, N*N);
+
+    // Copy the result back to the CPU
+    cudaMemcpy(matrix_results, m2, bytes_n, cudaMemcpyDeviceToHost);
+
+    for (int ii = 0; ii < N; ii++)
+    {
+
+        for (int jj = 0; jj < N; jj++)
+        {
+
+            std::cout << matrix_results[N * ii + jj] << " ,";
+        }
+    }
+
+    
 }
